@@ -13,7 +13,7 @@
     <% @lists.each do |list| %>
       <div class="col-12 col-sm-6 col-md-4">
         <%= link_to list_path(list), class: "text-decoration-none" do %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('theatre.jpg') %>);background-position: center;background-size: cover;">
+          <div class="card py-2 my-3" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('theatre.jpg') %>);background-position: center;background-size: cover;">
             <div class="card-body">
               <h4 class="card-title text-white text-center"><%= list.name %></h4>
             </div>
