@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :find_list, only: %i[show]
+  before_action :find_list, only: %i[show delete]
 
   def index
     @lists = List.all
@@ -19,6 +19,11 @@ class ListsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def delete
+    @list.destroy
+    redirect_to lists_path
   end
 
   private
