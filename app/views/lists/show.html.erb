@@ -15,7 +15,7 @@
   <div class="row my-2">
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-      <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
+      <div class="col-12 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="3000">
         <div class="bg-white rounded shadow h-100">
           <%= image_tag movie.poster_url, alt: movie.title, class: 'movie-img rounded-top' %>
           <div class="p-3 rounded-bottom d-flex flex-column">
@@ -31,5 +31,17 @@
         </div>
       </div>
     <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-6 offset-lg-3">
+    <div class="bg-white rounded p-3 shadow">
+      <h3>Add a movie to your <%= @list.name %> list</h3>
+      <%= simple_form_for [@list, @bookmark], remote: true do |f| %>
+        <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
+        <%= f.association :movie, prompt: 'Select a movie', input_html: { class: 'select2' } %>
+        <%= f.submit class: 'btn btn-flat' %>
+      <% end %>
+    </div>
   </div>
 </div>
