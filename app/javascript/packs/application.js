@@ -15,12 +15,12 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { initTyped } from './plugins/init_typed';
 import { initSelect2 } from './plugins/init_select2';
-// import { initStarRating } from './plugins/init_star_rating';
+import { initStarRating } from './plugins/init_star_rating';
 
 
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initTyped();
   AOS.init();
-  // initStarRating();
+  initStarRating();
 });
