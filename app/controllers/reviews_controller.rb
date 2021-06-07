@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @list = List.find(params[:list_id])
     @review.list = @list
-    if @review.saved
-      redirect_to list_path(@list)
+    if @review.save
+      redirect_to list_path(@list, anchor: "review-#{@review.id}")
     else
       render 'lists/show'
     end
